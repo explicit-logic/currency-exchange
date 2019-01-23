@@ -3,7 +3,7 @@ const Currency = require('../models').Currency;
 const errorHandler = require('../lib/errorHandler');
 
 const {check} = require('express-validator/check');
-const {sanitizeBody } = require('express-validator/filter');
+const {sanitizeBody} = require('express-validator/filter');
 
 module.exports = {
 
