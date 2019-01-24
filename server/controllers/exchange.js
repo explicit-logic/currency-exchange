@@ -51,12 +51,14 @@ module.exports = {
       Transaction.sum('amount', {
         where: {
           type: 'debit',
+          status: 'success',
           currencyId: currencyTo.id
         }
       }),
       Transaction.sum('amount', {
         where: {
           type: 'credit',
+          status: 'success',
           currencyId: currencyTo.id
         }
       })
