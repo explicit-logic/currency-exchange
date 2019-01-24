@@ -17,8 +17,10 @@ module.exports = {
 
   exec: errorHandler(async (req, res) => {
 
-    const currencyFrom = await Currency.findOne({ where: {code: req.query.from.toUpperCase()} });
-    const currencyTo = await Currency.findOne({ where: {code: req.query.to.toUpperCase()} });
+    const [currencyFrom, currencyTo] = await Promise.all([
+      Currency.findOne({ where: {code: req.query.from.toUpperCase()} }),
+      Currency.findOne({ where: {code: req.query.to.toUpperCase()} })
+    ]);
 
     if (!currencyFrom || !currencyTo) {
       return res.status(400).send({

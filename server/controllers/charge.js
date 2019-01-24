@@ -33,7 +33,7 @@ module.exports = {
 
     data.currencyId = currency.id;
     data.rate = currency.rate;
-    data.amount = req.body.amount;
+    data.amount = Number( req.body.amount.toFixed(2) );
 
     const transaction = await Transaction.create(data);
 

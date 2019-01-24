@@ -17,7 +17,7 @@ module.exports = middleware => {
 
       await middleware(req, res, next);
     } catch (err) {
-      res.status(400).send(err);
+      res.status(400).send(err.message);
     }
   };
 };
