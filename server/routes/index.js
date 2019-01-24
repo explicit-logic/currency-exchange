@@ -1,4 +1,4 @@
-const {currencies, charge, exchange} = require('../controllers');
+const {currencies, charge, convert,exchange} = require('../controllers');
 
 module.exports = (app) => {
 
@@ -23,6 +23,9 @@ module.exports = (app) => {
 
   // Transfer money to debit account
   app.post('/api/charge', charge.validation, charge.up);
+
+  // Convert money to another currency
+  app.get('/api/convert', convert.validation, convert.exec);
 
   // Exchange currencies
   app.post('/api/exchange/:buyCurrency/to/:sellCurrency', (req,res)=>{});
